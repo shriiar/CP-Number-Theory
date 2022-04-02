@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n, x=1;
+    cin >> n;
+    vector <bool> b(n, 1);
+    b[0] = 0, b[1] = 0;
+    for(int i=2; i*i<=n; i++)
+    {
+        if(b[i]==1)
+        {
+            for(int j=i*i; j<=n; j+=i)
+            {
+                b[j] = 0;
+            }
+        }
+    }
+    for(int i=1; i<=n; i++)
+    {
+        if(b[i]==1)
+            cout<<i<<" ";
+    }
+}
